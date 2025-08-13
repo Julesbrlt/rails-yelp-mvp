@@ -1,0 +1,22 @@
+<h1>Restaurant le "<%= @restaurant.name %>"</h1>
+<div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/1c/66/32/1c66322a9a811d91c14d0a4221b72166.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= @restaurant.name %></h5>
+    <p class="card-text">Address : <%= @restaurant.address %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Call us : <%= @restaurant.phone_number %></li>
+    <li class="list-group-item">We're doing <%= @restaurant.category %> cooking</li>
+  </ul>
+  <div class="card-body">
+    <%= link_to 'Voir la liste de restaurants', restaurants_path, class:'btn btn-secondary' %>
+  </div>
+  <p><strong>Reviews</strong></p>
+  <ul class='list-group'>
+  <% @restaurant.reviews.each do |review| %>
+  <li class='list-group-item'>Avis : <%= review.content %></li>
+  <li class='list-group-item'>Note : <%= review.rating %></li>
+  <% end %>
+  </ul>
+</div>
